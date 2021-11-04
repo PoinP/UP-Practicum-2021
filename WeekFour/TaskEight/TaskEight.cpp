@@ -11,7 +11,7 @@ int main()
     {
         for (int j = 0; j < squareSize; j++)
         {
-            if (i == 0 || i > j || i == squareSize || j == squareSize - 1)
+            if (i == 0 || i > j || j == squareSize - 1)
             {
                 std::cout << "*";
             }
