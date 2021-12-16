@@ -1,5 +1,6 @@
 #include <iostream>
 
+void swap(int& x, int& y);
 void enterArray(int arr[], int size);
 bool compareArrays(int arrayOne[], int arrayTwo[], int size);
 
@@ -37,9 +38,7 @@ bool compareArrays(int arrayOne[], int arrayTwo[], int size)
 			if (*(arrayOne + i) == *(arrayTwo + j))
 			{
 				areEqual = true;
-				*(arrayTwo + i) ^= *(arrayTwo + j);
-				*(arrayTwo + j) ^= *(arrayTwo + i);
-				*(arrayTwo + i) ^= *(arrayTwo + j);
+				swap(*(arrayTwo + i), *(arrayTwo + j));
 				break;
 			}
 		}
@@ -49,4 +48,11 @@ bool compareArrays(int arrayOne[], int arrayTwo[], int size)
 	}
 
 	return true;
+}
+
+void swap(int& x, int& y)
+{
+	x ^= y;
+	y ^= x;
+	x ^= y;
 }
